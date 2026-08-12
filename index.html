@@ -12,15 +12,41 @@
 
 <body>
 
-    <div id="forge">
+    <div id="stage">
+        <div id="forge">
 
-        <img
-            id="background2"
-            src="background2.png"
-            alt="Ravencore Color Forge"
-        >
+            <img
+                id="background"
+                src="background2.png"
+                alt="Ravencore Color Forge"
+            >
 
+        </div>
     </div>
+
+    <script>
+
+        function scaleForge() {
+
+            const forge = document.getElementById("forge");
+
+            const baseWidth = 1536;
+            const baseHeight = 1024;
+
+            const scaleX = window.innerWidth / baseWidth;
+            const scaleY = window.innerHeight / baseHeight;
+
+            const scale = Math.min(scaleX, scaleY);
+
+            forge.style.transform =
+                `translate(-50%, -50%) scale(${scale})`;
+        }
+
+        window.addEventListener("resize", scaleForge);
+
+        scaleForge();
+
+    </script>
 
 </body>
 
