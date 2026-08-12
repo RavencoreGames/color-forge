@@ -14,8 +14,7 @@ body {
 #forge {
     position: relative;
 
-    height: 100vh;
-
+    width: min(100vw, 150vh);
     aspect-ratio: 1536 / 1024;
 
     margin: auto;
