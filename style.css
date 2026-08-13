@@ -194,14 +194,15 @@ body {
    ========================================= */
 
 #themeMenu {
-
     position: absolute;
 
-    left: 0;
+    left: 50%;
 
     bottom: calc(100% + 10px);
 
-    width: 100%;
+    width: 300px;
+
+    transform: translateX(-50%);
 
     display: none;
 
@@ -221,14 +222,9 @@ body {
     border-radius: 8px;
 
     box-shadow:
-
-        0 8px 20px
-        rgba(0,0,0,0.7),
-
-        inset 0 1px 2px
-        rgba(255,255,255,0.12);
+        0 8px 20px rgba(0,0,0,0.7),
+        inset 0 1px 2px rgba(255,255,255,0.12);
 }
-
 
 #themeMenu.open {
 
