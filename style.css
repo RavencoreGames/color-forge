@@ -79,10 +79,10 @@ body {
 #themeControl {
     position: absolute;
 
-    left: 1050px;
-    top: 785px;
+    left: 800px;
+    top: 850px;
 
-    width: 75px;
+    width: 100px;
     height: 18px;
 
     z-index: 20;
