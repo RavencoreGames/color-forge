@@ -8,148 +8,6 @@
     <title>Ravencore Color Forge</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        /* =========================================
-           THEME CONTROL
-           ========================================= */
-
-        #themeControl {
-            position: absolute;
-
-            left: 1050px;
-            top: 785px;
-
-            width: 300px;
-
-            z-index: 20;
-        }
-
-        #themeButton {
-            width: 100%;
-            height: 70px;
-
-            padding: 8px 18px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            box-sizing: border-box;
-
-            border: 3px solid #6b4a2d;
-            border-radius: 8px;
-
-            background: linear-gradient(
-                to bottom,
-                #5c4935,
-                #38291d
-            );
-
-            color: #ead9b5;
-
-            font-family: Georgia, serif;
-
-            font-size: 18px;
-            font-weight: bold;
-
-            letter-spacing: 1px;
-
-            cursor: pointer;
-
-            box-shadow:
-                inset 0 2px 3px rgba(255,255,255,0.15),
-                inset 0 -5px 8px rgba(0,0,0,0.5),
-                0 5px 8px rgba(0,0,0,0.6);
-
-            transition:
-                transform 0.08s ease,
-                box-shadow 0.08s ease,
-                filter 0.15s ease;
-        }
-
-        #themeButton:hover {
-            filter: brightness(1.25);
-        }
-
-        #themeButton:active {
-            transform: translateY(4px);
-
-            box-shadow:
-                inset 0 4px 7px rgba(0,0,0,0.6),
-                0 1px 2px rgba(0,0,0,0.7);
-        }
-
-        #themeButton.active {
-            filter: brightness(1.5);
-
-            box-shadow:
-                0 0 12px rgba(255,190,80,0.7),
-                inset 0 2px 4px rgba(255,255,255,0.2),
-                inset 0 -4px 8px rgba(0,0,0,0.5);
-        }
-
-        #themeMenu {
-            position: absolute;
-
-            left: 0;
-
-            bottom: calc(100% + 10px);
-
-            width: 100%;
-
-            display: none;
-
-            padding: 8px;
-
-            box-sizing: border-box;
-
-            background: linear-gradient(
-                to bottom,
-                #49382a,
-                #241a12
-            );
-
-            border: 3px solid #765333;
-            border-radius: 8px;
-
-            box-shadow:
-                0 8px 20px rgba(0,0,0,0.7),
-                inset 0 1px 2px rgba(255,255,255,0.12);
-        }
-
-        #themeMenu.open {
-            display: block;
-        }
-
-        #themeMenu button {
-            width: 100%;
-
-            padding: 11px 12px;
-
-            margin: 3px 0;
-
-            border: 1px solid #765333;
-
-            background: #302218;
-
-            color: #ead9b5;
-
-            font-family: Georgia, serif;
-
-            font-size: 16px;
-
-            text-align: left;
-
-            cursor: pointer;
-        }
-
-        #themeMenu button:hover {
-            background: #5a432d;
-            color: #fff1c7;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -158,21 +16,37 @@
 
         <div id="forge">
 
-            <!-- BACKGROUND -->
+            <!-- =========================================
+                 BACKGROUND
+                 ========================================= -->
+
             <img
                 id="background"
                 src="background2.png"
                 alt="Ravencore Color Forge"
             >
 
-            <!-- THEME CONTROL -->
+
+            <!-- =========================================
+                 THEME CONTROL
+                 ========================================= -->
+
             <div id="themeControl">
 
                 <button id="themeButton">
+
                     <span>THEME</span>
-                    <span id="themeValue">MERMAID</span>
-                    <span>▴</span>
+
+                    <span id="themeValue">
+                        MERMAID
+                    </span>
+
+                    <span>
+                        ▴
+                    </span>
+
                 </button>
+
 
                 <div id="themeMenu">
 
@@ -212,53 +86,72 @@
 
             </div>
 
-        <!-- HARMONY CONTROL -->
-<div id="harmonyControl">
 
-    <button id="harmonyButton">
-        <span>HARMONY</span>
-        <span id="harmonyValue">OCEANIC</span>
-        <span>▴</span>
-    </button>
+            <!-- =========================================
+                 HARMONY CONTROL
+                 ========================================= -->
 
-    <div id="harmonyMenu">
+            <div id="harmonyControl">
 
-        <button data-harmony="oceanic">
-            OCEANIC
-        </button>
+                <button id="harmonyButton">
 
-        <button data-harmony="forest">
-            FOREST
-        </button>
+                    <span>
+                        HARMONY
+                    </span>
 
-        <button data-harmony="sunset">
-            SUNSET
-        </button>
+                    <span id="harmonyValue">
+                        OCEANIC
+                    </span>
 
-        <button data-harmony="autumn">
-            AUTUMN
-        </button>
+                    <span>
+                        ▴
+                    </span>
 
-        <button data-harmony="mystical">
-            MYSTICAL
-        </button>
+                </button>
 
-        <button data-harmony="monochrome">
-            MONOCHROME
-        </button>
 
-        <button data-harmony="random">
-            RANDOM
-        </button>
+                <div id="harmonyMenu">
 
-    </div>
+                    <button data-harmony="oceanic">
+                        OCEANIC
+                    </button>
 
-</div>
+                    <button data-harmony="forest">
+                        FOREST
+                    </button>
+
+                    <button data-harmony="sunset">
+                        SUNSET
+                    </button>
+
+                    <button data-harmony="autumn">
+                        AUTUMN
+                    </button>
+
+                    <button data-harmony="mystical">
+                        MYSTICAL
+                    </button>
+
+                    <button data-harmony="monochrome">
+                        MONOCHROME
+                    </button>
+
+                    <button data-harmony="random">
+                        RANDOM
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
 
     <script>
 
@@ -293,7 +186,9 @@
             scaleForge
         );
 
+
         scaleForge();
+
 
 
         /* =========================================
@@ -344,16 +239,20 @@
                                 .textContent
                                 .trim();
 
+
                         themeValue.textContent =
                             selectedName;
+
 
                         themeMenu.classList.remove(
                             "open"
                         );
 
+
                         themeButton.classList.remove(
                             "active"
                         );
+
 
                         console.log(
                             "Theme selected:",
@@ -366,8 +265,80 @@
             }
         );
 
+
+
+        /* =========================================
+           HARMONY MENU
+           ========================================= */
+
+        const harmonyButton =
+            document.getElementById("harmonyButton");
+
+        const harmonyMenu =
+            document.getElementById("harmonyMenu");
+
+        const harmonyValue =
+            document.getElementById("harmonyValue");
+
+
+        harmonyButton.addEventListener(
+            "click",
+            function () {
+
+                harmonyMenu.classList.toggle("open");
+
+                harmonyButton.classList.toggle("active");
+
+            }
+        );
+
+
+        const harmonyChoices =
+            document.querySelectorAll(
+                "#harmonyMenu button"
+            );
+
+
+        harmonyChoices.forEach(
+            function (choice) {
+
+                choice.addEventListener(
+                    "click",
+                    function (event) {
+
+                        const selectedHarmony =
+                            event.currentTarget
+                                .dataset.harmony;
+
+                        const selectedName =
+                            event.currentTarget
+                                .textContent
+                                .trim();
+
+
+                        harmonyValue.textContent =
+                            selectedName;
+
+
+                        harmonyMenu.classList.remove(
+                            "open"
+                        );
+
+
+                        harmonyButton.classList.remove(
+                            "active"
+                        );
+
+
+                        console.log(
+                            "Harmony selected:",
+                            selectedHarmony
+                        );
+
+                    }
+                );
+
+            }
+        );
+
     </script>
-
-</body>
-
-</html>
