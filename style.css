@@ -196,13 +196,11 @@ body {
 #themeMenu {
     position: absolute;
 
-    left: 50%;
+    left: 0;
 
     bottom: calc(100% + 10px);
 
     width: 300px;
-
-    transform: translateX(-50%);
 
     display: none;
 
