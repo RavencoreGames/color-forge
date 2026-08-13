@@ -231,16 +231,15 @@ body {
    ========================================= */
 
 #harmonyControl {
-
     position: absolute;
 
     left: 505px;
     top: 785px;
 
-    width: 170px;
+    width: 75px;
+    height: 18px;
 
     z-index: 20;
-}
 
 
 /* =========================================
