@@ -381,3 +381,77 @@ body {
 
     color: #fff1c7;
 }
+
+/* =========================================
+   PALETTE COLOR WELLS
+   ========================================= */
+
+#paletteColors {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 1536px;
+    height: 1024px;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.paintWell {
+    position: absolute;
+
+    width: 120px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* FIRST WELL */
+#well1 {
+    left: 335px;
+    top: 750px;
+
+    background: #18A8A8;
+}
+
+
+/* SECOND WELL */
+#well2 {
+    left: 490px;
+    top: 750px;
+
+    background: #35C6B0;
+}
+
+
+/* THIRD WELL */
+#well3 {
+    left: 645px;
+    top: 750px;
+
+    background: #7FD1B9;
+}
+
+
+/* FOURTH WELL */
+#well4 {
+    left: 800px;
+    top: 750px;
+
+    background: #F2C14E;
+}
+
+
+/* FIFTH WELL */
+#well5 {
+    left: 955px;
+    top: 750px;
+
+    background: #E87A3D;
+}
