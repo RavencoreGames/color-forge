@@ -364,7 +364,7 @@ body {
     width: 1536px;
     height: 1024px;
 
-    z-index: 3;
+    z-index: 1;
 
     pointer-events: none;
 }
