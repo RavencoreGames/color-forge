@@ -179,81 +179,64 @@
 
 
 
-        /* =========================================
-           THEME MENU
-           ========================================= */
+     /* =========================================
+   THEME MENU
+   ========================================= */
 
-        const themeButton =
-            document.getElementById("themeButton");
+const themeButton =
+    document.getElementById("themeButton");
 
-        const themeMenu =
-            document.getElementById("themeMenu");
-
-        const themeValue =
-            document.getElementById("themeValue");
+const themeMenu =
+    document.getElementById("themeMenu");
 
 
-        themeButton.addEventListener(
+themeButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        themeMenu.classList.toggle("open");
+
+    }
+);
+
+
+const themeChoices =
+    document.querySelectorAll(
+        "#themeMenu button"
+    );
+
+
+themeChoices.forEach(
+    function (choice) {
+
+        choice.addEventListener(
             "click",
-            function () {
+            function (event) {
 
-                themeMenu.classList.toggle("open");
+                event.stopPropagation();
 
-                themeButton.classList.toggle("active");
+                const selectedTheme =
+                    event.currentTarget.dataset.theme;
 
-            }
-        );
-
-
-        const themeChoices =
-            document.querySelectorAll(
-                "#themeMenu button"
-            );
+                console.log(
+                    "Theme selected:",
+                    selectedTheme
+                );
 
 
-        themeChoices.forEach(
-            function (choice) {
+                /* CLOSE THE MENU */
 
-                choice.addEventListener(
-                    "click",
-                    function (event) {
-
-                        const selectedTheme =
-                            event.currentTarget
-                                .dataset.theme;
-
-                        const selectedName =
-                            event.currentTarget
-                                .textContent
-                                .trim();
-
-
-                        themeValue.textContent =
-                            selectedName;
-
-
-                        themeMenu.classList.remove(
-                            "open"
-                        );
-
-
-                        themeButton.classList.remove(
-                            "active"
-                        );
-
-
-                        console.log(
-                            "Theme selected:",
-                            selectedTheme
-                        );
-
-                    }
+                themeMenu.classList.remove(
+                    "open"
                 );
 
             }
         );
 
-
+    }
+);
 
         /* =========================================
            HARMONY MENU
