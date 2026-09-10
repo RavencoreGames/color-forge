@@ -513,12 +513,11 @@ body {
 }
 /* FIRST WELL */
 #well1 {
-    left: 320px;
-    top: 750px;
+    left: 320px !important;
+    top: 750px !important;
 
     background: #FF0000;
 }
-
 
 /* SECOND WELL */
 #well2 {
