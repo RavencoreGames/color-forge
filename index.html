@@ -338,6 +338,16 @@ themeChoices.forEach(
         document.getElementById("well3").style.backgroundColor = paletteColors[2];
         document.getElementById("well4").style.backgroundColor = paletteColors[3];
         document.getElementById("well5").style.backgroundColor = paletteColors[4];
+
+        const paintWells = document.querySelectorAll(".paintWell");
+
+paintWells.forEach(function (well) {
+    well.addEventListener("click", function () {
+        const color = getComputedStyle(well).backgroundColor;
+
+        console.log("Selected color:", color);
+    });
+});
     </script>
 </body>
 
