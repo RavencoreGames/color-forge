@@ -341,11 +341,26 @@ themeChoices.forEach(
 
         const paintWells = document.querySelectorAll(".paintWell");
 
+const paintWells = document.querySelectorAll(".paintWell");
+
 paintWells.forEach(function (well) {
     well.addEventListener("click", function () {
+
         const color = getComputedStyle(well).backgroundColor;
 
-        console.log("Selected color:", color);
+        const rgb = color.match(/\d+/g);
+
+        const hex =
+            "#" +
+            rgb.map(function (value) {
+                return Number(value).toString(16).padStart(2, "0");
+            }).join("").toUpperCase();
+
+        navigator.clipboard.writeText(hex);
+
+        console.log("Selected color:", hex);
+        console.log("RGB:", color);
+        console.log("HEX copied:", hex);
     });
 });
     </script>
