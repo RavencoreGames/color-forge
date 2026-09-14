@@ -374,10 +374,10 @@ body {
     width: 180px;
     height: 110px;
 
-    border-radius:
-        48% 52% 45% 55% /
-        55% 45% 55% 45%;
-
+  border-radius:
+    54% 46% 58% 42% /
+    48% 57% 43% 54%;
+   
     pointer-events: none;
 
     opacity: 1;
