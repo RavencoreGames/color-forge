@@ -561,3 +561,13 @@ box-shadow:
 
     background: #E87A3D;
 }
+#colorInfoPanel {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    z-index: 300;
+    background: white;
+    color: black;
+    padding: 20px;
+    border: 3px solid red;
+}
