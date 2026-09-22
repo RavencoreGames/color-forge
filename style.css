@@ -587,3 +587,27 @@ box-shadow:
 
     white-space: nowrap;
 }
+#hex1 {
+    left: 320px;
+    top: 700px;
+}
+
+#hex2 {
+    left: 490px;
+    top: 700px;
+}
+
+#hex3 {
+    left: 645px;
+    top: 700px;
+}
+
+#hex4 {
+    left: 800px;
+    top: 700px;
+}
+
+#hex5 {
+    left: 945px;
+    top: 695px;
+}
