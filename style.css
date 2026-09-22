@@ -597,20 +597,24 @@ box-shadow:
 
 #hex2 {
     left: 490px;
-    top: 700px;
+    top: 855px;
+   transform: rotate(-3deg);
 }
 
 #hex3 {
     left: 645px;
-    top: 700px;
+     top: 855px;
+   transform: rotate(-3deg);
 }
 
 #hex4 {
     left: 800px;
-    top: 700px;
+     top: 855px;
+   transform: rotate(-3deg);
 }
 
 #hex5 {
     left: 945px;
-    top: 695px;
+ top: 855px;
+   transform: rotate(-3deg);
 }
