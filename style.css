@@ -561,3 +561,29 @@ box-shadow:
 
     background: #E87A3D;
 }
+#hexLabels {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1536px;
+    height: 1024px;
+    z-index: 200;
+    pointer-events: none;
+}
+
+.hexLabel {
+    position: absolute;
+
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    color: #65f5ff;
+
+    text-shadow:
+        0 0 3px #65f5ff,
+        0 0 7px rgba(101, 245, 255, 0.7);
+
+    white-space: nowrap;
+}
