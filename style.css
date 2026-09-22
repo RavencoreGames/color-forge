@@ -574,16 +574,18 @@ box-shadow:
 .hexLabel {
     position: absolute;
 
-    font-family: "Courier New", monospace;
-    font-size: 20px;
-    font-weight: bold;
+    font-family: "Special Elite", "Courier New", monospace;
+    font-size: 18px;
+    font-weight: normal;
     letter-spacing: 1px;
 
-    color: #65f5ff;
+    /* Aged bronze engraving ink */
+    color: #302820;
 
+    /* Subtle engraved depth */
     text-shadow:
-        0 0 3px #65f5ff,
-        0 0 7px rgba(101, 245, 255, 0.7);
+        1px 1px 0 rgba(230, 200, 150, 0.35),
+        -1px -1px 0 rgba(0, 0, 0, 0.35);
 
     white-space: nowrap;
 }
