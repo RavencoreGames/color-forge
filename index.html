@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,29 +16,31 @@
     <div id="stage">
 
         <div id="forge">
-            
-<!-- PALETTE COLORS -->
-<div id="paletteColors">
 
-    <div class="paintWell" id="well1"></div>
-    <div class="paintWell" id="well2"></div>
-    <div class="paintWell" id="well3"></div>
-    <div class="paintWell" id="well4"></div>
-    <div class="paintWell" id="well5"></div>
+            <!-- PALETTE COLORS -->
 
-</div> 
-            
-<div id="hexLabels">
+            <div id="paletteColors">
 
-    <span class="hexLabel" id="hex1">#4BAEB5</span>
-    <span class="hexLabel" id="hex2">#65C9B0</span>
-    <span class="hexLabel" id="hex3">#8FD5C8</span>
-    <span class="hexLabel" id="hex4">#E8C35D</span>
-    <span class="hexLabel" id="hex5">#D98245</span>
+                <div class="paintWell" id="well1"></div>
+                <div class="paintWell" id="well2"></div>
+                <div class="paintWell" id="well3"></div>
+                <div class="paintWell" id="well4"></div>
+                <div class="paintWell" id="well5"></div>
 
-</div>
+            </div>
 
-            
+
+            <div id="hexLabels">
+
+                <span class="hexLabel" id="hex1">#4BAEB5</span>
+                <span class="hexLabel" id="hex2">#65C9B0</span>
+                <span class="hexLabel" id="hex3">#8FD5C8</span>
+                <span class="hexLabel" id="hex4">#E8C35D</span>
+                <span class="hexLabel" id="hex5">#D98245</span>
+
+            </div>
+
+
             <!-- =========================================
                  BACKGROUND
                  ========================================= -->
@@ -55,7 +58,7 @@
 
             <div id="themeControl">
 
-              <button id="themeButton"></button>
+                <button id="themeButton"></button>
 
 
                 <div id="themeMenu">
@@ -110,7 +113,7 @@
                     </span>
 
                     <span id="harmonyValue">
-                        OCEANIC
+                        WHISPER
                     </span>
 
                     <span>
@@ -122,28 +125,28 @@
 
                 <div id="harmonyMenu">
 
-                    <button data-harmony="oceanic">
-                        OCEANIC
+                    <button data-harmony="whisper">
+                        WHISPER
                     </button>
 
-                    <button data-harmony="forest">
-                        FOREST
+                    <button data-harmony="awakened">
+                        AWAKENED
                     </button>
 
-                    <button data-harmony="sunset">
-                        SUNSET
+                    <button data-harmony="kindled">
+                        KINDLED
                     </button>
 
-                    <button data-harmony="autumn">
-                        AUTUMN
+                    <button data-harmony="forged">
+                        FORGED
                     </button>
 
-                    <button data-harmony="mystical">
-                        MYSTICAL
+                    <button data-harmony="radiant">
+                        RADIANT
                     </button>
 
-                    <button data-harmony="monochrome">
-                        MONOCHROME
+                    <button data-harmony="overcharged">
+                        OVERCHARGED
                     </button>
 
                     <button data-harmony="random">
@@ -200,65 +203,65 @@
         scaleForge();
 
 
+        /* =========================================
+           THEME MENU
+           ========================================= */
 
-     /* =========================================
-   THEME MENU
-   ========================================= */
+        const themeButton =
+            document.getElementById("themeButton");
 
-const themeButton =
-    document.getElementById("themeButton");
-
-const themeMenu =
-    document.getElementById("themeMenu");
-
-
-themeButton.addEventListener(
-    "click",
-    function (event) {
-
-        event.stopPropagation();
-
-        themeMenu.classList.toggle("open");
-
-    }
-);
+        const themeMenu =
+            document.getElementById("themeMenu");
 
 
-const themeChoices =
-    document.querySelectorAll(
-        "#themeMenu button"
-    );
-
-
-themeChoices.forEach(
-    function (choice) {
-
-        choice.addEventListener(
+        themeButton.addEventListener(
             "click",
             function (event) {
 
                 event.stopPropagation();
 
-                const selectedTheme =
-                    event.currentTarget.dataset.theme;
+                themeMenu.classList.toggle("open");
 
-                console.log(
-                    "Theme selected:",
-                    selectedTheme
-                );
+            }
+        );
 
 
-                /* CLOSE THE MENU */
+        const themeChoices =
+            document.querySelectorAll(
+                "#themeMenu button"
+            );
 
-                themeMenu.classList.remove(
-                    "open"
+
+        themeChoices.forEach(
+            function (choice) {
+
+                choice.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        const selectedTheme =
+                            event.currentTarget.dataset.theme;
+
+                        console.log(
+                            "Theme selected:",
+                            selectedTheme
+                        );
+
+
+                        /* CLOSE THE MENU */
+
+                        themeMenu.classList.remove(
+                            "open"
+                        );
+
+                    }
                 );
 
             }
         );
 
-    }
-);
 
         /* =========================================
            HARMONY MENU
@@ -333,33 +336,59 @@ themeChoices.forEach(
 
             }
         );
-/* =========================================
+
+
+        /* =========================================
            PALETTE COLORS
            ========================================= */
 
-     const paletteColors = [
-    "#4BAEB5",
-    "#65C9B0",
-    "#8FD5C8",
-    "#E8C35D",
-    "#D98245"
-];
-        document.getElementById("well1").style.backgroundColor = paletteColors[0];
-        document.getElementById("well2").style.backgroundColor = paletteColors[1];
-        document.getElementById("well3").style.backgroundColor = paletteColors[2];
-        document.getElementById("well4").style.backgroundColor = paletteColors[3];
-        document.getElementById("well5").style.backgroundColor = paletteColors[4];
+        const paletteColors = [
+            "#4BAEB5",
+            "#65C9B0",
+            "#8FD5C8",
+            "#E8C35D",
+            "#D98245"
+        ];
 
-        const paintWells = document.querySelectorAll(".paintWell");
 
-paintWells.forEach(function (well) {
-    well.addEventListener("click", function () {
-        const color = getComputedStyle(well).backgroundColor;
+        document.getElementById("well1").style.backgroundColor =
+            paletteColors[0];
 
-        console.log("Selected color:", color);
-    });
-});
+        document.getElementById("well2").style.backgroundColor =
+            paletteColors[1];
+
+        document.getElementById("well3").style.backgroundColor =
+            paletteColors[2];
+
+        document.getElementById("well4").style.backgroundColor =
+            paletteColors[3];
+
+        document.getElementById("well5").style.backgroundColor =
+            paletteColors[4];
+
+
+        const paintWells =
+            document.querySelectorAll(".paintWell");
+
+
+        paintWells.forEach(function (well) {
+
+            well.addEventListener("click", function () {
+
+                const color =
+                    getComputedStyle(well).backgroundColor;
+
+                console.log(
+                    "Selected color:",
+                    color
+                );
+
+            });
+
+        });
+
     </script>
+
 </body>
 
 </html>
