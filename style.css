@@ -748,3 +748,38 @@ body {
 
     z-index: 5;
 }
+/* =========================================
+   DYNAMIC THEME NAMEPLATE
+   ========================================= */
+
+#themeButton {
+    position: relative;
+}
+
+#themeButton #themeValue {
+    position: absolute;
+
+    left: 0;
+    top: 4px;
+
+    width: 100px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    padding: 0 3px;
+
+    background: #302218;
+    color: #ead9b5;
+
+    font-family: Georgia, serif;
+    font-size: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    z-index: 5;
+}
