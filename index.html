@@ -245,13 +245,21 @@ const themeValue =
 
                         event.stopPropagation();
 
-                        const selectedTheme =
-                            event.currentTarget.dataset.theme;
+                       const selectedTheme =
+    event.currentTarget.dataset.theme;
 
-                        console.log(
-                            "Theme selected:",
-                            selectedTheme
-                        );
+const selectedName =
+    event.currentTarget
+        .textContent
+        .trim();
+
+themeValue.textContent =
+    selectedName;
+
+console.log(
+    "Theme selected:",
+    selectedTheme
+);
 
 
                         /* CLOSE THE MENU */
