@@ -671,6 +671,30 @@ const harmonySettings = {
 
 };
 
+        /* =========================================
+   APPLY HARMONY
+   ========================================= */
+
+function applyHarmony(colors, harmonyName) {
+
+    const settings =
+        harmonySettings[harmonyName];
+
+    const adjustedColors =
+        colors.map(function (color) {
+
+            return applyHarmonyColor(
+                color,
+                settings.saturation,
+                settings.lightness
+            );
+
+        });
+
+    return adjustedColors;
+
+}
+
 
         const paintWells =
             document.querySelectorAll(".paintWell");
