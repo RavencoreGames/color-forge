@@ -598,6 +598,40 @@ function hslToHex(h, s, l) {
         g.toString(16).padStart(2, "0") +
         b.toString(16).padStart(2, "0");
 }
+
+        /* =========================================
+   HARMONY ADJUSTMENT
+   ========================================= */
+
+function applyHarmonyColor(hex, saturationChange, lightnessChange) {
+
+    const hsl =
+        hexToHSL(hex);
+
+    hsl.s =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                hsl.s + saturationChange
+            )
+        );
+
+    hsl.l =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                hsl.l + lightnessChange
+            )
+        );
+
+    return hslToHex(
+        hsl.h,
+        hsl.s,
+        hsl.l
+    );
+}
         const paintWells =
             document.querySelectorAll(".paintWell");
 
