@@ -415,20 +415,24 @@ const themePalettes = {
 };
 
 
-        document.getElementById("well1").style.backgroundColor =
-            paletteColors[0];
+     function applyPalette(colors) {
 
-        document.getElementById("well2").style.backgroundColor =
-            paletteColors[1];
+    document.getElementById("well1").style.backgroundColor =
+        colors[0];
 
-        document.getElementById("well3").style.backgroundColor =
-            paletteColors[2];
+    document.getElementById("well2").style.backgroundColor =
+        colors[1];
 
-        document.getElementById("well4").style.backgroundColor =
-            paletteColors[3];
+    document.getElementById("well3").style.backgroundColor =
+        colors[2];
 
-        document.getElementById("well5").style.backgroundColor =
-            paletteColors[4];
+    document.getElementById("well4").style.backgroundColor =
+        colors[3];
+
+    document.getElementById("well5").style.backgroundColor =
+        colors[4];
+
+}
 
 
         const paintWells =
