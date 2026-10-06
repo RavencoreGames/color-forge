@@ -245,7 +245,7 @@ const themeValue =
 
                         event.stopPropagation();
 
-                       const selectedTheme =
+                   const selectedTheme =
     event.currentTarget.dataset.theme;
 
 const selectedName =
@@ -255,6 +255,10 @@ const selectedName =
 
 themeValue.textContent =
     selectedName;
+
+applyPalette(
+    themePalettes[selectedTheme]
+);
 
 console.log(
     "Theme selected:",
