@@ -419,7 +419,7 @@ const themePalettes = {
 };
 
 
-     function applyPalette(colors) {
+ function applyPalette(colors) {
 
     document.getElementById("well1").style.backgroundColor =
         colors[0];
@@ -436,9 +436,17 @@ const themePalettes = {
     document.getElementById("well5").style.backgroundColor =
         colors[4];
 
+
+    hexLabels[0].textContent = colors[0];
+    hexLabels[1].textContent = colors[1];
+    hexLabels[2].textContent = colors[2];
+    hexLabels[3].textContent = colors[3];
+    hexLabels[4].textContent = colors[4];
+
 }
-applyPalette(themePalettes.mermaid);
-        const hexLabels = [
+
+
+const hexLabels = [
     document.getElementById("hex1"),
     document.getElementById("hex2"),
     document.getElementById("hex3"),
@@ -446,6 +454,8 @@ applyPalette(themePalettes.mermaid);
     document.getElementById("hex5")
 ];
 
+
+applyPalette(themePalettes.mermaid);
 
         const paintWells =
             document.querySelectorAll(".paintWell");
