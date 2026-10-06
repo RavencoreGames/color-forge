@@ -670,6 +670,22 @@ const harmonySettings = {
     }
 
 };
+
+        /* =========================================
+   HARMONY TEST
+   ========================================= */
+
+const testColor =
+    applyHarmonyColor(
+        "#355A43",
+        harmonySettings.forged.saturation,
+        harmonySettings.forged.lightness
+    );
+
+console.log(
+    "Harmony test:",
+    testColor
+);
         const paintWells =
             document.querySelectorAll(".paintWell");
 
