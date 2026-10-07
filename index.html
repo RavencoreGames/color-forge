@@ -311,18 +311,20 @@ console.log(
                     "click",
                     function (event) {
 
-                        const selectedHarmony =
-                            event.currentTarget
-                                .dataset.harmony;
+                      const selectedHarmony =
+                          event.currentTarget
+                            .dataset.harmony;
 
-                        const selectedName =
-                            event.currentTarget
-                                .textContent
-                                .trim();
+                      const selectedName =
+                          event.currentTarget
+                            .textContent
+                            .trim();
 
+harmonyValue.textContent =
+    selectedName;
 
-                        harmonyValue.textContent =
-                            selectedName;
+currentHarmony =
+    selectedHarmony;
 
 
                         harmonyMenu.classList.remove(
