@@ -283,7 +283,8 @@ console.log(
 
         const harmonyValue =
             document.getElementById("harmonyValue");
-
+        
+        let currentHarmony = "whisper";
 
         harmonyButton.addEventListener(
             "click",
@@ -695,21 +696,7 @@ function applyHarmony(colors, harmonyName) {
 
 }
 
-        /* =========================================
-   HARMONY PALETTE TEST
-   ========================================= */
-
-const testPalette =
-    applyHarmony(
-        themePalettes.faerie,
-        "forged"
-    );
-
-console.log(
-    "Harmony palette test:",
-    testPalette
-);
-
+ 
         const paintWells =
             document.querySelectorAll(".paintWell");
 
