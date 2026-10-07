@@ -59,8 +59,8 @@
             <div id="themeControl">
 
                 <button id="themeButton">
-    <span id="themeValue">MERMAID</span>
-</button>
+                    <span id="themeValue">MERMAID</span>
+                </button>
 
 
                 <div id="themeMenu">
@@ -70,7 +70,7 @@
                     </button>
 
                     <button data-theme="forest">
-                       FOREST
+                        FOREST
                     </button>
 
                     <button data-theme="dragon">
@@ -86,11 +86,11 @@
                     </button>
 
                     <button data-theme="moonlit">
-                         MOONLIT
+                        MOONLIT
                     </button>
 
                     <button data-theme="undead">
-                         UNDEAD
+                        UNDEAD
                     </button>
 
                 </div>
@@ -162,6 +162,7 @@
 
     <script>
 
+
         /* =========================================
            RESPONSIVE COLOR FORGE SCALING
            ========================================= */
@@ -201,16 +202,17 @@
            THEME MENU
            ========================================= */
 
-       const themeButton =
-    document.getElementById("themeButton");
+        const themeButton =
+            document.getElementById("themeButton");
 
-const themeMenu =
-    document.getElementById("themeMenu");
+        const themeMenu =
+            document.getElementById("themeMenu");
 
-const themeValue =
-    document.getElementById("themeValue");
+        const themeValue =
+            document.getElementById("themeValue");
 
         let currentTheme = "mermaid";
+
 
         themeButton.addEventListener(
             "click",
@@ -239,28 +241,32 @@ const themeValue =
 
                         event.stopPropagation();
 
-                   const selectedTheme =
-    event.currentTarget.dataset.theme;
 
-const selectedName =
-    event.currentTarget
-        .textContent
-        .trim();
+                        const selectedTheme =
+                            event.currentTarget.dataset.theme;
 
-themeValue.textContent =
-    selectedName;
 
-currentTheme =
-    selectedTheme;
+                        const selectedName =
+                            event.currentTarget
+                                .textContent
+                                .trim();
 
-applyPalette(
-    themePalettes[selectedTheme]
-);
 
-console.log(
-    "Theme selected:",
-    selectedTheme
-);
+                        themeValue.textContent =
+                            selectedName;
+
+
+                        currentTheme =
+                            selectedTheme;
+
+
+                        updatePalette();
+
+
+                        console.log(
+                            "Theme selected:",
+                            selectedTheme
+                        );
 
 
                         /* CLOSE THE MENU */
@@ -288,8 +294,9 @@ console.log(
 
         const harmonyValue =
             document.getElementById("harmonyValue");
-        
+
         let currentHarmony = "whisper";
+
 
         harmonyButton.addEventListener(
             "click",
@@ -316,26 +323,32 @@ console.log(
                     "click",
                     function (event) {
 
-                      const selectedHarmony =
-                          event.currentTarget
-                            .dataset.harmony;
 
-                      const selectedName =
-                          event.currentTarget
-                            .textContent
-                            .trim();
+                        const selectedHarmony =
+                            event.currentTarget
+                                .dataset.harmony;
 
-harmonyValue.textContent =
-    selectedName;
 
-currentHarmony =
-    selectedHarmony;
+                        const selectedName =
+                            event.currentTarget
+                                .textContent
+                                .trim();
 
-updatePalette();
 
-harmonyMenu.classList.remove(
-    "open"
-);
+                        harmonyValue.textContent =
+                            selectedName;
+
+
+                        currentHarmony =
+                            selectedHarmony;
+
+
+                        updatePalette();
+
+
+                        harmonyMenu.classList.remove(
+                            "open"
+                        );
 
 
                         harmonyButton.classList.remove(
@@ -355,374 +368,499 @@ harmonyMenu.classList.remove(
         );
 
 
-       /* =========================================
-   THEME PALETTES
-   ========================================= */
+        /* =========================================
+           THEME PALETTES
+           ========================================= */
 
-const themePalettes = {
+        const themePalettes = {
 
-    mermaid: [
-        "#176B87",
-        "#219EBC",
-        "#62C9C1",
-        "#A8E6CF",
-        "#D4B483"
-    ],
+            mermaid: [
+                "#176B87",
+                "#219EBC",
+                "#62C9C1",
+                "#A8E6CF",
+                "#D4B483"
+            ],
 
-    forest: [
-        "#243B2A",
-        "#426B45",
-        "#789262",
-        "#B5B86A",
-        "#765238"
-    ],
+            forest: [
+                "#243B2A",
+                "#426B45",
+                "#789262",
+                "#B5B86A",
+                "#765238"
+            ],
 
-    dragon: [
-        "#541F2A",
-        "#963B3F",
-        "#C96736",
-        "#C6A04B",
-        "#393247"
-    ],
+            dragon: [
+                "#541F2A",
+                "#963B3F",
+                "#C96736",
+                "#C6A04B",
+                "#393247"
+            ],
 
-    arcane: [
-        "#282044",
-        "#543C8C",
-        "#805DA8",
-        "#B49BD4",
-        "#4C9B91"
-    ],
+            arcane: [
+                "#282044",
+                "#543C8C",
+                "#805DA8",
+                "#B49BD4",
+                "#4C9B91"
+            ],
 
-    faerie: [
-        "#355A43",
-        "#78A968",
-        "#D6C85F",
-        "#E58BB4",
-        "#F6C6D9"
-    ],
+            faerie: [
+                "#355A43",
+                "#78A968",
+                "#D6C85F",
+                "#E58BB4",
+                "#F6C6D9"
+            ],
 
-    moonlit: [
-        "#101D46",
-        "#244E87",
-        "#466FB2",
-        "#8B9ED0",
-        "#D8B86A"
-    ],
+            moonlit: [
+                "#101D46",
+                "#244E87",
+                "#466FB2",
+                "#8B9ED0",
+                "#D8B86A"
+            ],
 
-    undead: [
-        "#343841",
-        "#777D88",
-        "#B5A58A",
-        "#8B6BA5",
-        "#C9B7D8"
-    ]
+            undead: [
+                "#343841",
+                "#777D88",
+                "#B5A58A",
+                "#8B6BA5",
+                "#C9B7D8"
+            ]
 
-};
-
-
- function applyPalette(colors) {
-
-    document.getElementById("well1").style.backgroundColor =
-        colors[0];
-
-    document.getElementById("well2").style.backgroundColor =
-        colors[1];
-
-    document.getElementById("well3").style.backgroundColor =
-        colors[2];
-
-    document.getElementById("well4").style.backgroundColor =
-        colors[3];
-
-    document.getElementById("well5").style.backgroundColor =
-        colors[4];
+        };
 
 
-    hexLabels[0].textContent = colors[0];
-    hexLabels[1].textContent = colors[1];
-    hexLabels[2].textContent = colors[2];
-    hexLabels[3].textContent = colors[3];
-    hexLabels[4].textContent = colors[4];
+        /* =========================================
+           APPLY PALETTE
+           ========================================= */
 
-}
+        function applyPalette(colors) {
 
+            document.getElementById("well1").style.backgroundColor =
+                colors[0];
 
-const hexLabels = [
-    document.getElementById("hex1"),
-    document.getElementById("hex2"),
-    document.getElementById("hex3"),
-    document.getElementById("hex4"),
-    document.getElementById("hex5")
-];
+            document.getElementById("well2").style.backgroundColor =
+                colors[1];
 
+            document.getElementById("well3").style.backgroundColor =
+                colors[2];
 
-applyPalette(themePalettes.mermaid);
+            document.getElementById("well4").style.backgroundColor =
+                colors[3];
 
-        
-  /* =========================================
-   HEX TO HSL
-   ========================================= */
-
-function hexToHSL(hex) {
-
-    let r =
-        parseInt(hex.substring(1, 3), 16) / 255;
-
-    let g =
-        parseInt(hex.substring(3, 5), 16) / 255;
-
-    let b =
-        parseInt(hex.substring(5, 7), 16) / 255;
+            document.getElementById("well5").style.backgroundColor =
+                colors[4];
 
 
-    const max =
-        Math.max(r, g, b);
-
-    const min =
-        Math.min(r, g, b);
-
-    let h;
-    let s;
-
-    const l =
-        (max + min) / 2;
-
-
-    if (max === min) {
-
-        h = 0;
-        s = 0;
-
-    } else {
-
-        const d = max - min;
-
-        s =
-            l > 0.5
-                ? d / (2 - max - min)
-                : d / (max + min);
-
-
-        switch (max) {
-
-            case r:
-
-                h =
-                    (g - b) / d +
-                    (g < b ? 6 : 0);
-
-                break;
-
-            case g:
-
-                h =
-                    (b - r) / d + 2;
-
-                break;
-
-            case b:
-
-                h =
-                    (r - g) / d + 4;
-
-                break;
+            hexLabels[0].textContent = colors[0];
+            hexLabels[1].textContent = colors[1];
+            hexLabels[2].textContent = colors[2];
+            hexLabels[3].textContent = colors[3];
+            hexLabels[4].textContent = colors[4];
 
         }
 
-        h /= 6;
 
-    }
+        const hexLabels = [
 
+            document.getElementById("hex1"),
+            document.getElementById("hex2"),
+            document.getElementById("hex3"),
+            document.getElementById("hex4"),
+            document.getElementById("hex5")
 
-    return {
-        h: h * 360,
-        s: s * 100,
-        l: l * 100
-    };
+        ];
 
-}
-/* =========================================
-   HSL TO HEX
-   ========================================= */
-
-function hslToHex(h, s, l) {
-
-    s /= 100;
-    l /= 100;
-
-    const c =
-        (1 - Math.abs(2 * l - 1)) * s;
-
-    const x =
-        c * (1 - Math.abs((h / 60) % 2 - 1));
-
-    const m =
-        l - c / 2;
-
-    let r = 0;
-    let g = 0;
-    let b = 0;
-
-
-    if (h < 60) {
-
-        r = c;
-        g = x;
-
-    } else if (h < 120) {
-
-        r = x;
-        g = c;
-
-    } else if (h < 180) {
-
-        g = c;
-        b = x;
-
-    } else if (h < 240) {
-
-        g = x;
-        b = c;
-
-    } else if (h < 300) {
-
-        r = x;
-        b = c;
-
-    } else {
-
-        r = c;
-        b = x;
-
-    }
-
-
-    r = Math.round((r + m) * 255);
-    g = Math.round((g + m) * 255);
-    b = Math.round((b + m) * 255);
-
-
-    return "#" +
-        r.toString(16).padStart(2, "0") +
-        g.toString(16).padStart(2, "0") +
-        b.toString(16).padStart(2, "0");
-}
 
         /* =========================================
-   HARMONY ADJUSTMENT
-   ========================================= */
+           HEX TO HSL
+           ========================================= */
 
-function applyHarmonyColor(hex, saturationChange, lightnessChange) {
+        function hexToHSL(hex) {
 
-    const hsl =
-        hexToHSL(hex);
+            let r =
+                parseInt(
+                    hex.substring(1, 3),
+                    16
+                ) / 255;
 
-    hsl.s =
-        Math.max(
-            0,
-            Math.min(
-                100,
-                hsl.s + saturationChange
-            )
-        );
+            let g =
+                parseInt(
+                    hex.substring(3, 5),
+                    16
+                ) / 255;
 
-    hsl.l =
-        Math.max(
-            0,
-            Math.min(
-                100,
-                hsl.l + lightnessChange
-            )
-        );
+            let b =
+                parseInt(
+                    hex.substring(5, 7),
+                    16
+                ) / 255;
 
-    return hslToHex(
-        hsl.h,
-        hsl.s,
-        hsl.l
-    );
-}
+
+            const max =
+                Math.max(r, g, b);
+
+            const min =
+                Math.min(r, g, b);
+
+
+            let h;
+            let s;
+
+
+            const l =
+                (max + min) / 2;
+
+
+            if (max === min) {
+
+                h = 0;
+                s = 0;
+
+            } else {
+
+                const d =
+                    max - min;
+
+
+                s =
+                    l > 0.5
+                        ? d / (2 - max - min)
+                        : d / (max + min);
+
+
+                switch (max) {
+
+                    case r:
+
+                        h =
+                            (g - b) / d +
+                            (g < b ? 6 : 0);
+
+                        break;
+
+
+                    case g:
+
+                        h =
+                            (b - r) / d + 2;
+
+                        break;
+
+
+                    case b:
+
+                        h =
+                            (r - g) / d + 4;
+
+                        break;
+
+                }
+
+
+                h /= 6;
+
+            }
+
+
+            return {
+
+                h: h * 360,
+                s: s * 100,
+                l: l * 100
+
+            };
+
+        }
+
 
         /* =========================================
-   HARMONY SETTINGS
-   ========================================= */
+           HSL TO HEX
+           ========================================= */
 
-const harmonySettings = {
+        function hslToHex(h, s, l) {
 
-    whisper: {
-        saturation: -20,
-        lightness: 12
-    },
-
-    awakened: {
-        saturation: -10,
-        lightness: 7
-    },
-
-    kindled: {
-        saturation: 5,
-        lightness: 2
-    },
-
-    forged: {
-        saturation: 15,
-        lightness: -2
-    },
-
-    radiant: {
-        saturation: 25,
-        lightness: 5
-    },
-
-    surge: {
-        saturation: 35,
-        lightness: 10
-    }
-
-};
-
-        /* =========================================
-   APPLY HARMONY
-   ========================================= */
-
-function applyHarmony(colors, harmonyName) {
-
-    const settings =
-        harmonySettings[harmonyName];
-
-    const adjustedColors =
-        colors.map(function(color) {
-
-            return applyHarmonyColor(
-                color,
-                settings.saturation,
-                settings.lightness
-            );
-
-        });
-
-    return adjustedColors;
-}
-
- 
-        const paintWells =
-            document.querySelectorAll(".paintWell");
+            s /= 100;
+            l /= 100;
 
 
-        paintWells.forEach(function (well) {
+            const c =
+                (1 - Math.abs(2 * l - 1)) * s;
 
-            well.addEventListener("click", function () {
 
-                const color =
-                    getComputedStyle(well).backgroundColor;
+            const x =
+                c *
+                (1 - Math.abs(
+                    (h / 60) % 2 - 1
+                ));
 
-                console.log(
-                    "Selected color:",
-                    color
+
+            const m =
+                l - c / 2;
+
+
+            let r = 0;
+            let g = 0;
+            let b = 0;
+
+
+            if (h < 60) {
+
+                r = c;
+                g = x;
+
+            } else if (h < 120) {
+
+                r = x;
+                g = c;
+
+            } else if (h < 180) {
+
+                g = c;
+                b = x;
+
+            } else if (h < 240) {
+
+                g = x;
+                b = c;
+
+            } else if (h < 300) {
+
+                r = x;
+                b = c;
+
+            } else {
+
+                r = c;
+                b = x;
+
+            }
+
+
+            r =
+                Math.round(
+                    (r + m) * 255
                 );
 
-            });
+            g =
+                Math.round(
+                    (g + m) * 255
+                );
 
-        });
+            b =
+                Math.round(
+                    (b + m) * 255
+                );
+
+
+            return "#" +
+
+                r.toString(16)
+                    .padStart(2, "0") +
+
+                g.toString(16)
+                    .padStart(2, "0") +
+
+                b.toString(16)
+                    .padStart(2, "0");
+
+        }
+
+
+        /* =========================================
+           HARMONY ADJUSTMENT
+           ========================================= */
+
+        function applyHarmonyColor(
+            hex,
+            saturationChange,
+            lightnessChange
+        ) {
+
+            const hsl =
+                hexToHSL(hex);
+
+
+            hsl.s =
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        hsl.s + saturationChange
+                    )
+                );
+
+
+            hsl.l =
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        hsl.l + lightnessChange
+                    )
+                );
+
+
+            return hslToHex(
+                hsl.h,
+                hsl.s,
+                hsl.l
+            );
+
+        }
+
+
+        /* =========================================
+           HARMONY SETTINGS
+           ========================================= */
+
+        const harmonySettings = {
+
+            whisper: {
+
+                saturation: -20,
+                lightness: 12
+
+            },
+
+            awakened: {
+
+                saturation: -10,
+                lightness: 7
+
+            },
+
+            kindled: {
+
+                saturation: 5,
+                lightness: 2
+
+            },
+
+            forged: {
+
+                saturation: 15,
+                lightness: -2
+
+            },
+
+            radiant: {
+
+                saturation: 25,
+                lightness: 5
+
+            },
+
+            surge: {
+
+                saturation: 35,
+                lightness: 10
+
+            }
+
+        };
+
+
+        /* =========================================
+           APPLY HARMONY
+           ========================================= */
+
+        function applyHarmony(
+            colors,
+            harmonyName
+        ) {
+
+            const settings =
+                harmonySettings[harmonyName];
+
+
+            const adjustedColors =
+                colors.map(
+                    function (color) {
+
+                        return applyHarmonyColor(
+                            color,
+                            settings.saturation,
+                            settings.lightness
+                        );
+
+                    }
+                );
+
+
+            return adjustedColors;
+
+        }
+
+
+        /* =========================================
+           UPDATE CURRENT PALETTE
+           ========================================= */
+
+        function updatePalette() {
+
+            const baseColors =
+                themePalettes[currentTheme];
+
+
+            const adjustedColors =
+                applyHarmony(
+                    baseColors,
+                    currentHarmony
+                );
+
+
+            applyPalette(
+                adjustedColors
+            );
+
+        }
+
+
+        /* =========================================
+           INITIAL PALETTE
+           ========================================= */
+
+        updatePalette();
+
+
+        /* =========================================
+           PAINT WELL SELECTION
+           ========================================= */
+
+        const paintWells =
+            document.querySelectorAll(
+                ".paintWell"
+            );
+
+
+        paintWells.forEach(
+            function (well) {
+
+                well.addEventListener(
+                    "click",
+                    function () {
+
+                        const color =
+                            getComputedStyle(
+                                well
+                            ).backgroundColor;
+
+
+                        console.log(
+                            "Selected color:",
+                            color
+                        );
+
+                    }
+                );
+
+            }
+        );
+
 
     </script>
 
