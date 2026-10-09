@@ -812,9 +812,11 @@ body {
         0 0 9px #ffd45c,
         0 0 15px rgba(255, 190, 55, 0.8);
 
-    opacity: 0;
+      opacity: 0;
 
     pointer-events: none;
+
+    animation: faerieDustSwirl 1s ease-in-out forwards;
 }
 
 /* =========================================
