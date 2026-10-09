@@ -824,32 +824,35 @@ body {
    ========================================= */
 
 @keyframes faerieDustSwirl {
-
     0% {
         opacity: 0;
-        transform: translate(0, 12px) scale(0.3);
+        transform: rotate(0deg) translateX(4px) scale(0.3);
     }
 
-    20% {
+    15% {
         opacity: 1;
-        transform: translate(8px, 0) scale(1);
+        transform: rotate(54deg) translateX(14px) scale(1);
     }
 
-    45% {
-        opacity: 0.9;
-        transform: translate(-7px, -10px) scale(1.2);
+    40% {
+        opacity: 0.95;
+        transform: rotate(144deg) translateX(22px) scale(1.2);
     }
 
-    70% {
-        opacity: 0.7;
-        transform: translate(6px, -18px) scale(0.8);
+    65% {
+        opacity: 0.75;
+        transform: rotate(234deg) translateX(15px) scale(0.9);
+    }
+
+    85% {
+        opacity: 0.45;
+        transform: rotate(306deg) translateX(8px) scale(0.7);
     }
 
     100% {
         opacity: 0;
-        transform: translate(-4px, -28px) scale(0.2);
+        transform: rotate(360deg) translateX(4px) scale(0.2);
     }
-
 }
 /* Keep golden magic contained within each paint well */
 .magicWellEffect {
