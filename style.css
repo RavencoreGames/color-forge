@@ -816,3 +816,36 @@ body {
 
     pointer-events: none;
 }
+
+/* =========================================
+   GOLDEN FAERIE DUST ANIMATION
+   ========================================= */
+
+@keyframes faerieDustSwirl {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 12px) scale(0.3);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(8px, 0) scale(1);
+    }
+
+    45% {
+        opacity: 0.9;
+        transform: translate(-7px, -10px) scale(1.2);
+    }
+
+    70% {
+        opacity: 0.7;
+        transform: translate(6px, -18px) scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-4px, -28px) scale(0.2);
+    }
+
+}
