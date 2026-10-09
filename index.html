@@ -166,33 +166,41 @@
 
 function createMagicParticles() {
 
-    const magicEffect =
-        document.getElementById("magicEffect");
+    const paintWells =
+        document.querySelectorAll(".paintWell");
 
-    magicEffect.innerHTML = "";
+    paintWells.forEach(well => {
 
-    for (let i = 0; i < 35; i++) {
+        let effect =
+            well.querySelector(".magicWellEffect");
 
-        const particle =
-            document.createElement("span");
+        if (!effect) {
+            effect = document.createElement("div");
+            effect.className = "magicWellEffect";
+            well.appendChild(effect);
+        }
 
-        particle.className =
-            "magicParticle";
+        effect.innerHTML = "";
 
-        particle.style.left =
-            (Math.random() * 100) + "%";
+        for (let i = 0; i < 8; i++) {
 
-        particle.style.top =
-            (Math.random() * 100) + "%";
+            const particle =
+                document.createElement("span");
 
-        particle.style.animationDelay =
-            (Math.random() * 0.4) + "s";
+            particle.className = "magicParticle";
 
-        magicEffect.appendChild(
-            particle
-        );
+            particle.style.left =
+                (15 + Math.random() * 70) + "%";
 
-    }
+            particle.style.top =
+                (15 + Math.random() * 70) + "%";
+
+            particle.style.animationDelay =
+                (Math.random() * 0.15) + "s";
+
+            effect.appendChild(particle);
+        }
+    });
 
 }
         /* =========================================
