@@ -794,3 +794,25 @@ body {
     z-index: 10;
     overflow: hidden;
 }
+
+/* =========================================
+   RAVENCORE GOLDEN FAERIE DUST
+   ========================================= */
+
+.magicParticle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    background: #ffe9a3;
+
+    box-shadow:
+        0 0 4px #ffe9a3,
+        0 0 9px #ffd45c,
+        0 0 15px rgba(255, 190, 55, 0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
