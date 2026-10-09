@@ -817,6 +817,9 @@ body {
     pointer-events: none;
 
     animation: faerieDustSwirl 1s ease-in-out forwards;
+
+   transform-origin: 0 0;
+will-change: transform, opacity;
 }
 
 /* =========================================
@@ -864,4 +867,27 @@ body {
     border-radius: inherit;
     pointer-events: none;
     z-index: 5;
+}
+
+/* Individual faerie-dust directions for each paint well */
+.magicParticle[data-well="0"] {
+    animation-duration: 0.9s;
+}
+
+.magicParticle[data-well="1"] {
+    animation-duration: 1.1s;
+    animation-direction: reverse;
+}
+
+.magicParticle[data-well="2"] {
+    animation-duration: 0.8s;
+}
+
+.magicParticle[data-well="3"] {
+    animation-duration: 1s;
+    animation-direction: reverse;
+}
+
+.magicParticle[data-well="4"] {
+    animation-duration: 0.95s;
 }
