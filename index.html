@@ -169,7 +169,7 @@ function createMagicParticles() {
     const paintWells =
         document.querySelectorAll(".paintWell");
 
-    paintWells.forEach(well => {
+    paintWells.forEach((well, wellIndex) => {
 
         let effect =
             well.querySelector(".magicWellEffect");
@@ -189,19 +189,28 @@ function createMagicParticles() {
 
             particle.className = "magicParticle";
 
+            // Give each well its own animation identity.
+            particle.dataset.well = wellIndex;
+            particle.dataset.direction =
+                (wellIndex % 2 === 0) ? "clockwise" : "counterclockwise";
+
+            // Vary each wisp's starting position.
+            const angle = Math.random() * Math.PI * 2;
+            const radius = 25 + Math.random() * 15;
+
             particle.style.left =
-                (15 + Math.random() * 70) + "%";
+                (50 + Math.cos(angle) * radius) + "%";
 
             particle.style.top =
-                (15 + Math.random() * 70) + "%";
+                (50 + Math.sin(angle) * radius) + "%";
 
+            // Slightly stagger the wisps.
             particle.style.animationDelay =
                 (Math.random() * 0.15) + "s";
 
             effect.appendChild(particle);
         }
     });
-
 }
         /* =========================================
            RESPONSIVE COLOR FORGE SCALING
