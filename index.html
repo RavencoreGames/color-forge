@@ -180,36 +180,162 @@ function createMagicParticles() {
             well.appendChild(effect);
         }
 
-        effect.innerHTML = "";
+        let canvas = effect.querySelector("canvas");
 
-        for (let i = 0; i < 8; i++) {
-
-            const particle =
-                document.createElement("span");
-
-            particle.className = "magicParticle";
-
-            // Give each well its own animation identity.
-            particle.dataset.well = wellIndex;
-            particle.dataset.direction =
-                (wellIndex % 2 === 0) ? "clockwise" : "counterclockwise";
-
-            // Vary each wisp's starting position.
-            const angle = Math.random() * Math.PI * 2;
-            const radius = 25 + Math.random() * 15;
-
-            particle.style.left =
-                (50 + Math.cos(angle) * radius) + "%";
-
-            particle.style.top =
-                (50 + Math.sin(angle) * radius) + "%";
-
-            // Slightly stagger the wisps.
-            particle.style.animationDelay =
-                (Math.random() * 0.15) + "s";
-
-            effect.appendChild(particle);
+        if (!canvas) {
+            effect.innerHTML = "";
+            canvas = document.createElement("canvas");
+            canvas.className = "magicCanvas";
+            effect.appendChild(canvas);
         }
+
+        if (effect.animationFrame) {
+            cancelAnimationFrame(effect.animationFrame);
+        }
+
+        const width = well.clientWidth;
+        const height = well.clientHeight;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext("2d");
+
+        const direction =
+            wellIndex % 2 === 0 ? 1 : -1;
+
+        const duration =
+            800 + wellIndex * 45;
+
+        const startTime = performance.now();
+
+        const particles = Array.from(
+            { length: 30 },
+            () => ({
+                angle: Math.random() * Math.PI * 2,
+                turns: 0.8 + Math.random() * 0.8,
+                radius: 0.55 + Math.random() * 0.4,
+                size: 0.7 + Math.random() * 1.6,
+                delay: Math.random() * 0.18
+            })
+        );
+
+        function draw(now) {
+
+            const elapsed = now - startTime;
+
+            ctx.clearRect(0, 0, width, height);
+
+            let stillRunning = false;
+
+            particles.forEach(p => {
+
+                const progress =
+                    (elapsed / duration - p.delay) /
+                    (1 - p.delay);
+
+                if (progress < 0 || progress > 1) {
+                    if (progress < 1) stillRunning = true;
+                    return;
+                }
+
+                stillRunning = true;
+
+                const angle =
+                    p.angle +
+                    direction *
+                    progress *
+                    p.turns *
+                    Math.PI * 2;
+
+                const maxRadiusX =
+                    width * 0.43 * p.radius;
+
+                const maxRadiusY =
+                    height * 0.40 * p.radius;
+
+                const radius =
+                    5 + progress * maxRadiusX;
+
+                const x =
+                    width / 2 +
+                    Math.cos(angle) * radius;
+
+                const y =
+                    height / 2 +
+                    Math.sin(angle) *
+                    (5 + progress * maxRadiusY);
+
+                const fade =
+                    Math.min(1, progress * 8) *
+                    Math.min(1, (1 - progress) * 5);
+
+                // Draw a short curved trail behind each mote.
+                ctx.beginPath();
+
+                for (let step = 0; step <= 8; step++) {
+
+                    const t =
+                        Math.max(0, progress - step * 0.012);
+
+                    const trailAngle =
+                        p.angle +
+                        direction *
+                        t *
+                        p.turns *
+                        Math.PI * 2;
+
+                    const trailRadius =
+                        5 + t * maxRadiusX;
+
+                    const trailX =
+                        width / 2 +
+                        Math.cos(trailAngle) * trailRadius;
+
+                    const trailY =
+                        height / 2 +
+                        Math.sin(trailAngle) *
+                        (5 + t * maxRadiusY);
+
+                    if (step === 0) {
+                        ctx.moveTo(trailX, trailY);
+                    } else {
+                        ctx.lineTo(trailX, trailY);
+                    }
+                }
+
+                ctx.strokeStyle =
+                    `rgba(255, 207, 91, ${fade * 0.8})`;
+
+                ctx.lineWidth = p.size;
+                ctx.shadowColor = "#ffd45c";
+                ctx.shadowBlur = 8;
+                ctx.stroke();
+
+                // Draw the glowing dust mote.
+                ctx.beginPath();
+                ctx.arc(x, y, p.size, 0, Math.PI * 2);
+
+                ctx.fillStyle =
+                    `rgba(255, 239, 180, ${fade})`;
+
+                ctx.shadowColor = "#ffca48";
+                ctx.shadowBlur = 10;
+                ctx.fill();
+            });
+
+            ctx.shadowBlur = 0;
+
+            if (stillRunning) {
+                effect.animationFrame =
+                    requestAnimationFrame(draw);
+            } else {
+                ctx.clearRect(0, 0, width, height);
+            }
+        }
+
+        effect.animationFrame =
+            requestAnimationFrame(draw);
     });
 }
         /* =========================================
