@@ -164,6 +164,49 @@
 
     <script>
 
+        /* =========================================
+   RAVENCORE MAGICKAL SOUND SYSTEM
+   ========================================= */
+
+const magicSounds = [
+    "Magickforge1.mp3",
+    "Magickforge2.mp3",
+    "Magickforge3.mp3"
+];
+
+let lastMagicSound = -1;
+let currentMagicAudio = null;
+
+function playMagicSound() {
+
+    // Choose a sound different from the last one.
+    let soundIndex;
+
+    do {
+        soundIndex = Math.floor(
+            Math.random() * magicSounds.length
+        );
+    } while (soundIndex === lastMagicSound);
+
+    lastMagicSound = soundIndex;
+
+    // Stop any previous sound before starting another.
+    if (currentMagicAudio) {
+        currentMagicAudio.pause();
+        currentMagicAudio.currentTime = 0;
+    }
+
+    currentMagicAudio = new Audio(
+        magicSounds[soundIndex]
+    );
+
+    currentMagicAudio.volume = 0.5;
+
+    currentMagicAudio.play().catch(error => {
+        console.log("Sound playback unavailable:", error);
+    });
+}
+
 function createMagicParticles() {
 
     const paintWells =
