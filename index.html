@@ -350,8 +350,9 @@ const lingerDuration = 1000;
                 width / 2 + Math.cos(angle) * radiusX;
 
             const y =
-                height / 2 + Math.sin(angle) * radiusY;
-
+    height / 2 + Math.sin(angle) * radiusY
+    - (wellIndex >= 3 ? 8 : 0);
+            
             ctx.beginPath();
             ctx.arc(x, y, 1.2, 0, Math.PI * 2);
 
