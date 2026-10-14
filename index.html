@@ -393,12 +393,17 @@ const y =
             const radiusX = width * 0.28;
             const radiusY = height * 0.25;
 
-            const x =
-                width / 2 + Math.cos(angle) * radiusX;
+          const drift = lingerProgress * 18;
 
-            const y =
-    height / 2 + Math.sin(angle) * radiusY
-    - (wellIndex >= 3 ? 8 : 0);
+const x =
+    width / 2 +
+    Math.cos(angle) * (radiusX + drift);
+
+const y =
+    height / 2 +
+    Math.sin(angle) * (radiusY + drift)
+    - (wellIndex >= 3 ? 8 : 0)
+    - lingerProgress * 6;
             
             ctx.beginPath();
             ctx.arc(x, y, 1.2, 0, Math.PI * 2);
