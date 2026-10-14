@@ -891,3 +891,19 @@ will-change: transform, opacity;
 .magicParticle[data-well="4"] {
     animation-duration: 0.95s;
 }
+
+/* =========================================
+   RAVENCORE MAGICAL SWIRL CANVAS
+   ========================================= */
+
+.magicCanvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    pointer-events: none;
+}
