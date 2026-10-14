@@ -205,8 +205,10 @@ function createMagicParticles() {
             wellIndex % 2 === 0 ? 1 : -1;
 
         const duration =
-            800 + wellIndex * 45;
+    800 + wellIndex * 45;
 
+const lingerDuration = 1000;
+        
         const startTime = performance.now();
 
        const particles = Array.from(
@@ -223,6 +225,8 @@ function createMagicParticles() {
         function draw(now) {
 
             const elapsed = now - startTime;
+
+            const lingering = elapsed > duration;
 
             ctx.clearRect(0, 0, width, height);
 
@@ -326,12 +330,48 @@ function createMagicParticles() {
 
             ctx.shadowBlur = 0;
 
-            if (stillRunning) {
-                effect.animationFrame =
-                    requestAnimationFrame(draw);
-            } else {
-                ctx.clearRect(0, 0, width, height);
-            }
+           if (stillRunning || elapsed < duration + lingerDuration) {
+
+    if (lingering) {
+        const lingerProgress =
+            (elapsed - duration) / lingerDuration;
+
+        const glow = Math.max(0, 1 - lingerProgress);
+
+        for (let i = 0; i < 12; i++) {
+
+            const angle =
+                (i / 12) * Math.PI * 2 + wellIndex;
+
+            const radiusX = width * 0.28;
+            const radiusY = height * 0.25;
+
+            const x =
+                width / 2 + Math.cos(angle) * radiusX;
+
+            const y =
+                height / 2 + Math.sin(angle) * radiusY;
+
+            ctx.beginPath();
+            ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+
+            ctx.fillStyle =
+                `rgba(255, 225, 145, ${glow * 0.65})`;
+
+            ctx.shadowColor = "#ffd45c";
+            ctx.shadowBlur = 8;
+            ctx.fill();
+        }
+
+        ctx.shadowBlur = 0;
+    }
+
+    effect.animationFrame =
+        requestAnimationFrame(draw);
+
+} else {
+    ctx.clearRect(0, 0, width, height);
+}
         }
 
         effect.animationFrame =
