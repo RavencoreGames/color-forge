@@ -304,14 +304,16 @@ const lingerDuration = 1000;
                 const radius =
                     5 + progress * maxRadiusX;
 
-                const x =
-                    width / 2 +
-                    Math.cos(angle) * radius;
+               const x =
+    width / 2 +
+    Math.cos(angle) * radius
+    - (wellIndex === 4 ? 10 : 0);
 
-                const y =
-                    height / 2 +
-                    Math.sin(angle) *
-                    (5 + progress * maxRadiusY);
+const y =
+    height / 2 +
+    Math.sin(angle) *
+    (5 + progress * maxRadiusY)
+    - (wellIndex === 4 ? 8 : 0);
 
                 const fade =
                     Math.min(1, progress * 8) *
