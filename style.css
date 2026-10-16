@@ -907,3 +907,88 @@ will-change: transform, opacity;
     display: block;
     pointer-events: none;
 }
+
+/* =========================================
+   COLOR FORGE — GLOSSY PAINT WELL UPGRADE
+   Applies to all five wells
+   ========================================= */
+
+.paintWell {
+
+    /* Antique metallic rim and paint depth */
+
+    box-shadow:
+
+        inset 0 0 0 2px
+        rgba(226, 184, 105, 0.78),
+
+        inset 0 0 0 5px
+        rgba(66, 38, 21, 0.53),
+
+        inset 0 10px 13px
+        rgba(255, 255, 255, 0.15),
+
+        inset 6px 3px 8px
+        rgba(255, 255, 255, 0.12),
+
+        inset -9px -13px 16px
+        rgba(0, 0, 0, 0.36),
+
+        0 4px 7px
+        rgba(0, 0, 0, 0.42);
+}
+
+
+/* Richer paint texture */
+
+.paintWell::before {
+
+    opacity: 1;
+
+    box-shadow:
+
+        inset 0 3px 7px
+        rgba(255, 255, 255, 0.12),
+
+        inset 0 -5px 9px
+        rgba(0, 0, 0, 0.16);
+}
+
+
+/* Glossy reflections on wet paint */
+
+.paintWell::after {
+
+    left: 12%;
+    top: 14%;
+
+    width: 71%;
+    height: 53%;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            ellipse at 20% 20%,
+            rgba(255, 255, 255, 0.43),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            165deg,
+            transparent 42%,
+            rgba(255, 255, 255, 0.18) 45%,
+            transparent 51%,
+            rgba(0, 0, 0, 0.10) 58%,
+            transparent 65%
+        );
+
+    transform: rotate(-12deg);
+
+    filter: blur(2px);
+
+    opacity: 0.82;
+
+    pointer-events: none;
+}
