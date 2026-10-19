@@ -1140,7 +1140,263 @@ const y =
             }
         );
 
+/* =========================================
+   EXPORT PNG
+   ========================================= */
 
+const exportPngButton =
+    document.getElementById("exportPngButton");
+
+const exportTemplate =
+    new Image();
+
+exportTemplate.src =
+    "Template.png";
+
+
+const themeDisplayNames = {
+    mermaid: "Mermaid",
+    forest: "Forest",
+    dragon: "Dragon",
+    arcane: "Arcane",
+    faerie: "Faerie",
+    moonlit: "Moonlit",
+    undead: "Undead"
+};
+
+const harmonyDisplayNames = {
+    whisper: "Whisper",
+    awakened: "Awakened",
+    kindled: "Kindled",
+    forged: "Forged",
+    radiant: "Radiant",
+    surge: "Surge"
+};
+
+
+/* =========================================
+   GET CURRENT PALETTE COLORS
+   ========================================= */
+
+function getCurrentPaletteColors() {
+    return [
+        document.getElementById("well1").style.backgroundColor,
+        document.getElementById("well2").style.backgroundColor,
+        document.getElementById("well3").style.backgroundColor,
+        document.getElementById("well4").style.backgroundColor,
+        document.getElementById("well5").style.backgroundColor
+    ];
+}
+
+
+/* =========================================
+   DRAW ONE PAINT WELL
+   ========================================= */
+
+function drawPaintCircle(ctx, x, y, radius, color) {
+
+    /* base paint */
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.closePath();
+
+    ctx.fillStyle = color;
+    ctx.fill();
+
+    /* darker edge */
+    const edgeGradient =
+        ctx.createRadialGradient(
+            x - radius * 0.15,
+            y - radius * 0.15,
+            radius * 0.2,
+            x,
+            y,
+            radius
+        );
+
+    edgeGradient.addColorStop(0, "rgba(255,255,255,0.10)");
+    edgeGradient.addColorStop(0.55, "rgba(255,255,255,0.02)");
+    edgeGradient.addColorStop(1, "rgba(0,0,0,0.22)");
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.closePath();
+
+    ctx.fillStyle = edgeGradient;
+    ctx.fill();
+
+    /* glossy highlight */
+    const glossGradient =
+        ctx.createRadialGradient(
+            x - radius * 0.35,
+            y - radius * 0.35,
+            radius * 0.05,
+            x - radius * 0.35,
+            y - radius * 0.35,
+            radius * 0.55
+        );
+
+    glossGradient.addColorStop(0, "rgba(255,255,255,0.48)");
+    glossGradient.addColorStop(0.35, "rgba(255,255,255,0.18)");
+    glossGradient.addColorStop(1, "rgba(255,255,255,0)");
+
+    ctx.beginPath();
+    ctx.ellipse(
+        x - radius * 0.12,
+        y - radius * 0.16,
+        radius * 0.62,
+        radius * 0.42,
+        -0.35,
+        0,
+        Math.PI * 2
+    );
+    ctx.closePath();
+
+    ctx.fillStyle = glossGradient;
+    ctx.fill();
+
+    /* soft streak */
+    ctx.beginPath();
+    ctx.ellipse(
+        x - radius * 0.10,
+        y - radius * 0.02,
+        radius * 0.42,
+        radius * 0.12,
+        -0.55,
+        0,
+        Math.PI * 2
+    );
+    ctx.closePath();
+
+    ctx.fillStyle = "rgba(255,255,255,0.20)";
+    ctx.fill();
+}
+
+
+/* =========================================
+   EXPORT FUNCTION
+   ========================================= */
+
+function exportPalettePNG() {
+
+    if (!exportTemplate.complete) {
+        alert("Template.png is still loading. Try again in a second.");
+        return;
+    }
+
+    const canvas =
+        document.createElement("canvas");
+
+    canvas.width = 1536;
+    canvas.height = 1024;
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    const colors =
+        getCurrentPaletteColors();
+
+    const themeName =
+        themeDisplayNames[currentTheme] || currentTheme;
+
+    const harmonyName =
+        harmonyDisplayNames[currentHarmony] || currentHarmony;
+
+
+    /* -----------------------------------------
+       1. DRAW COLORS BEHIND THE TRANSPARENT WELLS
+       ----------------------------------------- */
+
+    const wellData = [
+        { x: 248,  y: 540, r: 108 },
+        { x: 518,  y: 540, r: 108 },
+        { x: 790,  y: 540, r: 108 },
+        { x: 1061, y: 540, r: 108 },
+        { x: 1332, y: 540, r: 108 }
+    ];
+
+    for (let i = 0; i < 5; i++) {
+        drawPaintCircle(
+            ctx,
+            wellData[i].x,
+            wellData[i].y,
+            wellData[i].r,
+            colors[i]
+        );
+    }
+
+
+    /* -----------------------------------------
+       2. DRAW TEMPLATE ON TOP
+       ----------------------------------------- */
+
+    ctx.drawImage(exportTemplate, 0, 0, 1536, 1024);
+
+
+    /* -----------------------------------------
+       3. DRAW THEME + HARMONY TEXT
+       ----------------------------------------- */
+
+    ctx.fillStyle = "#5a241c";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    ctx.font = "bold 42px Georgia";
+    ctx.fillText(themeName, 635, 374);
+
+    ctx.fillText(harmonyName, 1160, 374);
+
+
+    /* -----------------------------------------
+       4. DRAW HEX CODES
+       ----------------------------------------- */
+
+    const hexPositions = [
+        { x: 248,  y: 754 },
+        { x: 518,  y: 754 },
+        { x: 790,  y: 754 },
+        { x: 1061, y: 754 },
+        { x: 1332, y: 754 }
+    ];
+
+    ctx.fillStyle = "#2d2418";
+    ctx.font = "36px 'Courier New'";
+
+    for (let i = 0; i < 5; i++) {
+        ctx.fillText(
+            colors[i].toUpperCase(),
+            hexPositions[i].x,
+            hexPositions[i].y
+        );
+    }
+
+
+    /* -----------------------------------------
+       5. DOWNLOAD PNG
+       ----------------------------------------- */
+
+    const link =
+        document.createElement("a");
+
+    link.download =
+        "ravencore-color-forge-palette.png";
+
+    link.href =
+        canvas.toDataURL("image/png");
+
+    link.click();
+}
+
+
+/* =========================================
+   EXPORT BUTTON CLICK
+   ========================================= */
+
+exportPngButton.addEventListener(
+    "click",
+    exportPalettePNG
+);
     </script>
 
 </body>
