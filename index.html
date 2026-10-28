@@ -1409,13 +1409,58 @@ for (let i = 0; i < 5; i++) {
 
 
 /* =========================================
+   EXPORT BUTTON CLICK SOUND
+   ========================================= */
+
+function playExportClick() {
+
+    const AudioContextClass =
+        window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContextClass) return;
+
+    const audioCtx = new AudioContextClass();
+
+    const oscillator = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    const now = audioCtx.currentTime;
+
+    oscillator.type = "triangle";
+
+    oscillator.frequency.setValueAtTime(950, now);
+    oscillator.frequency.exponentialRampToValueAtTime(
+        450, now + 0.07
+    );
+
+    gain.gain.setValueAtTime(0.12, now);
+    gain.gain.exponentialRampToValueAtTime(
+        0.001, now + 0.08
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    oscillator.start(now);
+    oscillator.stop(now + 0.08);
+
+    oscillator.onended = function() {
+        audioCtx.close();
+    };
+}
+
+
+/* =========================================
    EXPORT BUTTON CLICK
    ========================================= */
 
-exportPngButton.addEventListener(
-    "click",
-    exportPalettePNG
-);
+exportPngButton.addEventListener("click", function() {
+
+    playExportClick();
+
+    exportPalettePNG();
+
+});
     </script>
 
 </body>
