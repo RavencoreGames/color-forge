@@ -1366,18 +1366,29 @@ ctx.fillText(themeName, 555, 435);
 
 ctx.fillText(harmonyName, 1115, 435);
 
-    /* -----------------------------------------
-       4. DRAW HEX CODES
-       ----------------------------------------- */
+/* -----------------------------------------
+   4. DRAW HEX CODES
+   ----------------------------------------- */
 
-   
-    for (let i = 0; i < 5; i++) {
-        ctx.fillText(
-            colors[i].toUpperCase(),
-            hexPositions[i].x,
-            hexPositions[i].y
-        );
-    }
+const hexPositions = [
+    { x: 260,  y: 754 },
+    { x: 513,  y: 754 },
+    { x: 767,  y: 754 },
+    { x: 1022, y: 754 },
+    { x: 1276, y: 754 }
+];
+
+ctx.fillStyle = "#2d2418";
+ctx.font = "bold 30px Georgia";
+ctx.textAlign = "center";
+
+for (let i = 0; i < 5; i++) {
+    ctx.fillText(
+        colors[i].toUpperCase(),
+        hexPositions[i].x,
+        hexPositions[i].y
+    );
+}
 
 
     /* -----------------------------------------
