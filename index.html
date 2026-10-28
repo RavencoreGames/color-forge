@@ -1508,6 +1508,26 @@ exportPngButton.addEventListener("click", function() {
     exportPalettePNG();
 
 });
+
+        /* =========================================
+   EXPORT PALETTE DROPDOWN
+   ========================================= */
+
+const exportPaletteButton =
+    document.getElementById("exportPaletteButton");
+
+const exportPaletteMenu =
+    document.getElementById("exportPaletteMenu");
+
+exportPaletteButton.addEventListener("click", function() {
+
+    if (exportPaletteMenu.style.display === "none") {
+        exportPaletteMenu.style.display = "block";
+    } else {
+        exportPaletteMenu.style.display = "none";
+    }
+
+});
     </script>
 
 </body>
