@@ -992,3 +992,17 @@ will-change: transform, opacity;
 
     pointer-events: none;
 }
+
+ border: 1px solid #9c7643;
+    border-radius: 4px;
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.paletteExportChoice:hover {
+    background: #75502c;
+    color: #ffffff;
+}
