@@ -1202,15 +1202,13 @@ const harmonyDisplayNames = {
 
 function getCurrentPaletteColors() {
     return [
-        document.getElementById("well1").style.backgroundColor,
-        document.getElementById("well2").style.backgroundColor,
-        document.getElementById("well3").style.backgroundColor,
-        document.getElementById("well4").style.backgroundColor,
-        document.getElementById("well5").style.backgroundColor
+        document.getElementById("hex1").textContent.trim(),
+        document.getElementById("hex2").textContent.trim(),
+        document.getElementById("hex3").textContent.trim(),
+        document.getElementById("hex4").textContent.trim(),
+        document.getElementById("hex5").textContent.trim()
     ];
 }
-
-
 /* =========================================
    DRAW ONE PAINT WELL
    ========================================= */
