@@ -1414,39 +1414,14 @@ for (let i = 0; i < 5; i++) {
 
 function playExportClick() {
 
-    const AudioContextClass =
-        window.AudioContext || window.webkitAudioContext;
+    const clickSound = new Audio("click-sound.mp3");
 
-    if (!AudioContextClass) return;
+    clickSound.volume = 0.7;
 
-    const audioCtx = new AudioContextClass();
+    clickSound.play().catch(error => {
+        console.log("Click sound unavailable:", error);
+    });
 
-    const oscillator = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    const now = audioCtx.currentTime;
-
-    oscillator.type = "triangle";
-
-    oscillator.frequency.setValueAtTime(950, now);
-    oscillator.frequency.exponentialRampToValueAtTime(
-        450, now + 0.07
-    );
-
-    gain.gain.setValueAtTime(0.12, now);
-    gain.gain.exponentialRampToValueAtTime(
-        0.001, now + 0.08
-    );
-
-    oscillator.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    oscillator.start(now);
-    oscillator.stop(now + 0.08);
-
-    oscillator.onended = function() {
-        audioCtx.close();
-    };
 }
 
 
