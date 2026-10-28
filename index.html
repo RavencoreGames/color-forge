@@ -1528,6 +1528,45 @@ exportPaletteButton.addEventListener("click", function() {
     }
 
 });
+
+        /* =========================================
+   EXPORT CSS PALETTE
+   ========================================= */
+
+function exportPaletteCSS() {
+
+    const colors = getCurrentPaletteColors();
+
+    const cssContent = `:root {
+    --forge-color-1: ${colors[0]};
+    --forge-color-2: ${colors[1]};
+    --forge-color-3: ${colors[2]};
+    --forge-color-4: ${colors[3]};
+    --forge-color-5: ${colors[4]};
+}`;
+
+    const blob = new Blob(
+        [cssContent],
+        { type: "text/css" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `ravencore-${currentTheme}-${currentHarmony}.css`;
+    link.click();
+
+    URL.revokeObjectURL(url);
+}
+
+document.querySelector('[data-format="css"]')
+    .addEventListener("click", function() {
+
+        exportPaletteCSS();
+        exportPaletteMenu.style.display = "none";
+
+    });
     </script>
 
 </body>
