@@ -1567,6 +1567,61 @@ document.querySelector('[data-format="css"]')
         exportPaletteMenu.style.display = "none";
 
     });
+  /* =========================================
+   EXPORT GIMP GPL PALETTE
+   ========================================= */
+
+function exportPaletteGPL() {
+
+    const colors = getCurrentPaletteColors();
+
+    let gplContent =
+        "GIMP Palette\n" +
+        `Name: Ravencore ${currentTheme} ${currentHarmony}\n` +
+        "Columns: 5\n" +
+        "# Ravencore Color Forge\n";
+
+    colors.forEach((hex, index) => {
+
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+
+        gplContent +=
+            `${r} ${g} ${b}\tColor ${index + 1}\n`;
+    });
+
+    const blob = new Blob(
+        [gplContent],
+        { type: "text/plain" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download =
+        `ravencore-${currentTheme}-${currentHarmony}.gpl`;
+
+    link.click();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+
+/* =========================================
+   GIMP GPL BUTTON
+   ========================================= */
+
+document.querySelector('[data-format="gpl"]')
+    .addEventListener("click", function() {
+
+        exportPaletteGPL();
+
+        exportPaletteMenu.style.display = "none";
+
+    });
     </script>
 
 </body>
