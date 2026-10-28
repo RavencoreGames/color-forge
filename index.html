@@ -173,6 +173,59 @@
                     z-index: 30;
                 "
             ></button>
+
+            <!-- =========================================
+     EXPORT PALETTE FORMAT MENU
+     ========================================= -->
+
+<div id="exportPaletteMenu" style="
+    display: none;
+    position: absolute;
+    left: 965px;
+    top: 708px;
+    width: 250px;
+    padding: 12px;
+    box-sizing: border-box;
+    background: linear-gradient(
+        145deg,
+        #49301e,
+        #1d1410
+    );
+    border: 3px solid #b89050;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    z-index: 40;
+">
+
+    <div style="
+        color: #e8c991;
+        text-align: center;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        margin-bottom: 10px;
+    ">
+        CHOOSE YOUR FORMAT
+    </div>
+
+    <button
+        data-format="ase"
+        class="paletteExportChoice">
+        Adobe ASE
+    </button>
+
+    <button
+        data-format="gpl"
+        class="paletteExportChoice">
+        GIMP GPL
+    </button>
+
+    <button
+        data-format="css"
+        class="paletteExportChoice">
+        CSS
+    </button>
+
+</div>
 <!-- =========================================
      EXPORT PALETTE CLICKABLE AREA
      ========================================= -->
