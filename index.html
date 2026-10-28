@@ -1509,7 +1509,7 @@ exportPngButton.addEventListener("click", function() {
 
 });
 
-        /* =========================================
+/* =========================================
    EXPORT PALETTE DROPDOWN
    ========================================= */
 
@@ -1521,6 +1521,8 @@ const exportPaletteMenu =
 
 exportPaletteButton.addEventListener("click", function() {
 
+    new Audio("click-sound2.mp3").play();
+
     if (exportPaletteMenu.style.display === "none") {
         exportPaletteMenu.style.display = "block";
     } else {
@@ -1528,7 +1530,6 @@ exportPaletteButton.addEventListener("click", function() {
     }
 
 });
-
         /* =========================================
    EXPORT CSS PALETTE
    ========================================= */
